@@ -21,6 +21,41 @@
   window.addEventListener("scroll", onScroll);
   onScroll();
 
+  /* ---------- Clean-URL in-page navigation (Home/About/Services/Contact) ----------
+     These are all sections on the homepage. Instead of showing "/#about" in the
+     address bar, clicking these links smooth-scrolls within the page (when the
+     section exists here) and updates the URL to a clean path via pushState.
+     Landing directly on /about, /services or /contact (bookmark, shared link,
+     refresh) works too, since those are full copies of the homepage that jump
+     to the right section on load. */
+  (function () {
+    const sectionPaths = { "/": "home", "/about": "about", "/services": "services", "/contact": "contact" };
+
+    function scrollToSection(id, smooth) {
+      const el = document.getElementById(id);
+      if (!el) return false;
+      el.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+      return true;
+    }
+
+    const initialId = sectionPaths[window.location.pathname];
+    if (initialId && initialId !== "home") {
+      window.addEventListener("load", () => scrollToSection(initialId, false));
+    }
+
+    document.querySelectorAll('a[href="/"], a[href="/about"], a[href="/services"], a[href="/contact"]').forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href");
+        const id = sectionPaths[href];
+        if (!id) return;
+        if (scrollToSection(id, true)) {
+          e.preventDefault();
+          history.pushState(null, "", href);
+        }
+      });
+    });
+  })();
+
   if (navToggle && mainNav) {
     const navBackdrop = document.createElement("div");
     navBackdrop.className = "nav-backdrop";
@@ -239,7 +274,7 @@
       thumb.className = "gm-thumb";
       thumb.innerHTML =
         '<span class="gm-num">' + (i + 1) + "</span>" +
-        '<img src="assets/portfolio/' + slug + '/' + (i + 1) + '_thumb.jpg" alt="' + p.title + " " + (i + 1) + '" loading="lazy">';
+        '<img src="/assets/portfolio/' + slug + '/' + (i + 1) + '_thumb.jpg" alt="' + p.title + " " + (i + 1) + '" loading="lazy">';
       thumb.addEventListener("click", () => {
         closeGalleryGrid();
         openLightbox(slug, i);
