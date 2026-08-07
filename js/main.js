@@ -25,6 +25,7 @@
     const navBackdrop = document.createElement("div");
     navBackdrop.className = "nav-backdrop";
     document.body.appendChild(navBackdrop);
+    const navClose = mainNav.querySelector(".nav-close");
 
     function closeNav() {
       mainNav.classList.remove("open");
@@ -38,6 +39,7 @@
 
     navToggle.addEventListener("click", toggleNav);
     navBackdrop.addEventListener("click", closeNav);
+    if (navClose) navClose.addEventListener("click", closeNav);
     mainNav.querySelectorAll("a").forEach((a) =>
       a.addEventListener("click", closeNav)
     );

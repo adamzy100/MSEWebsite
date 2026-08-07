@@ -28,15 +28,15 @@ window.PROJECTS = [
   },
   {
     slug: "singapore-land-tower",
-    title: "Singapore Land Tower (SLT)",
+    title: "Singapore Land Tower",
     location: "Raffles Place, Singapore",
-    count: 12,
+    count: 16,
     dateAdded: 21,
     desc: "Scaffold access supporting upgrading works at Singapore Land Tower in the Central Business District."
   },
   {
     slug: "marina-bay-sands",
-    title: "Marina Bay Sands (MBS)",
+    title: "Marina Bay Sands",
     location: "Marina Bay, Singapore",
     count: 4,
     dateAdded: 20,

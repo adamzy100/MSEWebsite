@@ -164,6 +164,8 @@ section { padding: 96px 0; }
   cursor: pointer;
 }
 
+.nav-close { display: none; }
+
 @media (max-width: 960px) {
   .main-nav { position: fixed; top: 0; right: -100%; height: 100vh; width: 78vw; max-width: 340px;
     background: var(--white); flex-direction: column; align-items: flex-start; justify-content: flex-start;
@@ -171,6 +173,13 @@ section { padding: 96px 0; }
   .main-nav.open { right: 0; }
   .nav-backdrop { display: none; position: fixed; inset: 0; background: rgba(10,10,10,.45); z-index: 999; }
   .nav-backdrop.open { display: block; }
+  .nav-close {
+    display: flex; align-items: center; justify-content: center;
+    position: absolute; top: 24px; right: 24px;
+    width: 38px; height: 38px; border-radius: 50%;
+    border: none; background: var(--orange); color: #fff;
+    cursor: pointer;
+  }
   .main-nav ul { flex-direction: column; gap: 22px; }
   .main-nav a, .home-hero .site-header:not(.scrolled) .main-nav a { color: var(--charcoal) !important; }
   .header-phone.desktop-only { display: none; }
