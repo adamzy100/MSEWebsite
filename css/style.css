@@ -169,6 +169,8 @@ section { padding: 96px 0; }
     background: var(--white); flex-direction: column; align-items: flex-start; justify-content: flex-start;
     padding: 100px 32px 32px; box-shadow: var(--shadow-lg); transition: right .3s ease; }
   .main-nav.open { right: 0; }
+  .nav-backdrop { display: none; position: fixed; inset: 0; background: rgba(10,10,10,.45); z-index: 999; }
+  .nav-backdrop.open { display: block; }
   .main-nav ul { flex-direction: column; gap: 22px; }
   .main-nav a, .home-hero .site-header:not(.scrolled) .main-nav a { color: var(--charcoal) !important; }
   .header-phone.desktop-only { display: none; }

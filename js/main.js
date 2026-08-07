@@ -22,12 +22,28 @@
   onScroll();
 
   if (navToggle && mainNav) {
-    navToggle.addEventListener("click", () => {
-      mainNav.classList.toggle("open");
-    });
+    const navBackdrop = document.createElement("div");
+    navBackdrop.className = "nav-backdrop";
+    document.body.appendChild(navBackdrop);
+
+    function closeNav() {
+      mainNav.classList.remove("open");
+      navBackdrop.classList.remove("open");
+    }
+    function toggleNav() {
+      const willOpen = !mainNav.classList.contains("open");
+      mainNav.classList.toggle("open", willOpen);
+      navBackdrop.classList.toggle("open", willOpen);
+    }
+
+    navToggle.addEventListener("click", toggleNav);
+    navBackdrop.addEventListener("click", closeNav);
     mainNav.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => mainNav.classList.remove("open"))
+      a.addEventListener("click", closeNav)
     );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
   }
 
   /* ---------- Project grid rendering (must run BEFORE the reveal
