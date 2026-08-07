@@ -53,7 +53,7 @@
   const PROJECTS = window.PROJECTS || [];
 
   function projectCard(p) {
-    const cover = "assets/portfolio/" + p.slug + "/1_thumb.jpg";
+    const cover = "/assets/portfolio/" + p.slug + "/1_thumb.jpg";
     const div = document.createElement("div");
     div.className = "project-card reveal";
     div.setAttribute("data-slug", p.slug);
@@ -182,7 +182,7 @@
     const img = lb.querySelector("img");
     const cap = lb.querySelector(".lb-title");
     const count = lb.querySelector(".lb-count");
-    img.src = "assets/portfolio/" + currentSlug + "/" + (currentIndex + 1) + ".jpg";
+    img.src = "/assets/portfolio/" + currentSlug + "/" + (currentIndex + 1) + ".jpg";
     img.alt = p.title;
     cap.textContent = p.title + ", " + p.location;
     count.textContent = (currentIndex + 1) + " / " + currentCount;
