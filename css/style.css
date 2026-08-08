@@ -235,9 +235,9 @@ section { padding: 96px 0; }
 .hero-stats .num { font-family: var(--font-head); font-size: 30px; font-weight: 700; color: var(--white); }
 .hero-stats .lbl { font-size: 13px; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .06em; }
 .hero-badge { display: flex; align-items: center; }
-.hero-badge img { height: 58px; width: auto; display: block; background: #fff; border-radius: 10px; padding: 6px 10px; }
+.hero-badge img { height: 46px; width: auto; display: block; }
 @media (max-width: 700px) {
-  .hero-badge img { height: 46px; padding: 5px 8px; }
+  .hero-badge img { height: 38px; }
 }
 .scroll-cue {
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
